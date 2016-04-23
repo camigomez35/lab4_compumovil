@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Weather</string>
+
+    <string name="buscar">Search</string>
+    <string name="example">Example: Medellin</string>
+
+    <string name="ciudad">City: </string>
+    <string name="temperatura">Temperature: </string>
+    <string name="humedad">Humidity: </string>
+    <string name="descripcion">Description: </string>
+</resources>
