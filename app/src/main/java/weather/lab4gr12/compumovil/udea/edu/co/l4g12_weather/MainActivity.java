@@ -1,5 +1,6 @@
 package weather.lab4gr12.compumovil.udea.edu.co.l4g12_weather;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
@@ -9,7 +10,7 @@ import retrofit.RestAdapter;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
 
     TextView city, temperature, humidity, description;
     String url = "http://api.openweathermap.org/data/2.5";
@@ -34,15 +35,14 @@ public class MainActivity extends AppCompatActivity {
         restInterface.getWheatherReport(new Callback<Model>() {
             @Override
             public void success(Model model, Response response) {
-                city.setText("city :"+model.getName());
-                temperature.setText("Status :"+model.getWeather().get(0).getDescription());
-                humidity.setText("humidity :"+model.getMain().getHumidity().toString());
-                description.setText("pressure :"+model.getMain().getPressure().toString());
+                city.setText(""+model.getName());
+                temperature.setText(""+model.getWeather().get(0).getDescription());
+                humidity.setText(""+model.getMain().getHumidity().toString());
+                description.setText(""+model.getMain().getPressure().toString());
             }
 
             @Override
             public void failure(RetrofitError error) {
-
                 String merror = error.getMessage();
             }
         });
