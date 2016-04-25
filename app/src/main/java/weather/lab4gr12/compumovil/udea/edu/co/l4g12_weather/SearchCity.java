@@ -38,8 +38,9 @@ public class SearchCity extends Activity implements View.OnClickListener{
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.bt_search:
-                String c = String.valueOf(ciudad.getText());
+                String city = String.valueOf(ciudad.getText());
                 Intent i = new Intent(this, MainActivity.class);
+                i.putExtra("CIUDAD", city);
                 startActivity(i);
                 break;
         }

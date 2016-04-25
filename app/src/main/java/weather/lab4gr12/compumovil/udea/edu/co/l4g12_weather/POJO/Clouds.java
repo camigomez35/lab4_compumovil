@@ -1,4 +1,4 @@
-package weather.lab4gr12.compumovil.udea.edu.co.l4g12_weather;
+package weather.lab4gr12.compumovil.udea.edu.co.l4g12_weather.POJO;
 
 import com.google.gson.annotations.Expose;
 
