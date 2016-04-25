@@ -81,9 +81,15 @@ public class MainActivity extends Activity {
         restInterface.getWheatherReport(citySearch, "fa3fdff5301a355cbad7173b5314ea78",new Callback<Model>() {
             @Override
             public void success(Model model, Response response) {
-                city.setText(model.getName());
-                temperature.setText(model.getMain().getTemp().toString());
-                humidity.setText(model.getMain().getHumidity().toString());
+
+                //Nombre de la ciudad
+                city.setText(model.getName() +", " + model.getSys().getCountry());
+                //Temperatura en grados Celcius
+                Double k = model.getMain().getTemp();
+                Double c = k - 273.15;
+                temperature.setText(c.toString() + "°");
+                //Humedad en porcentage
+                humidity.setText(model.getMain().getHumidity().toString()+"%");
                 description.setText(model.getWeather().get(0).getDescription());
                 Uri uri = Uri.parse("http://openweathermap.org/img/w/"
                         + model.getWeather().get(0).getIcon() + ".png");
