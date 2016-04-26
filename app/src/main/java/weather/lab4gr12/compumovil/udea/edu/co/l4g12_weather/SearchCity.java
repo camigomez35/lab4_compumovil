@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -22,16 +24,20 @@ import retrofit.client.Response;
  */
 public class SearchCity extends Activity implements View.OnClickListener{
 
-    EditText ciudad;
+    AutoCompleteTextView ciudad;
+    String []ciudades;
     Button buscar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ciudad = (EditText)findViewById(R.id.search_city);
+        ciudades = getResources().getStringArray(R.array.capitales);
+        ciudad = (AutoCompleteTextView)findViewById(R.id.search_city);
         buscar = (Button)findViewById(R.id.bt_search);
         buscar.setOnClickListener(this);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, ciudades);
+        ciudad.setAdapter(adapter);
     }
 
     @Override
