@@ -87,7 +87,8 @@ public class MainActivity extends Activity {
                 //Temperatura en grados Celcius
                 Double k = model.getMain().getTemp();
                 Double c = k - 273.15;
-                temperature.setText(c.toString() + "°");
+                String temp = String.format("%.2f",c);
+                temperature.setText(temp + "°");
                 //Humedad en porcentage
                 humidity.setText(model.getMain().getHumidity().toString()+"%");
                 description.setText(model.getWeather().get(0).getDescription());
